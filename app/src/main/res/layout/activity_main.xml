@@ -7,42 +7,51 @@
     android:padding="16dp"
     tools:context=".MainActivity">
 
-    <EditText
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/cost_of_service"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:autofillHints=""
+        android:layout_width="245dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="64dp"
         android:hint="@string/cost_of_service"
-        android:inputType="numberDecimal"
-        android:minHeight="48dp"
-        android:textColorHint="#A1887F"
-        android:textSize="26sp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/cost_of_service_edit_text"
+            android:layout_width="244dp"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:textColorHint="#546E7A"
+            tools:ignore="TextContrastCheck" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <TextView
         android:id="@+id/service_question"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        style="@style/Widget.TipTime.TextView"
+        android:layout_width="208dp"
+        android:layout_height="34dp"
         android:text="@string/how_was_the_service"
         android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/tip_options"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.394"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cost_of_service" />
+        app:layout_constraintTop_toBottomOf="@+id/cost_of_service"
+        tools:ignore="TextSizeCheck" />
 
     <RadioGroup
         android:id="@+id/tip_options"
-        android:layout_width="249dp"
-        android:layout_height="147dp"
-        android:layout_marginTop="10dp"
+        android:layout_width="333dp"
+        android:layout_height="146dp"
         android:checkedButton="@id/option_twenty_percent"
         android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/service_question"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="TextSizeCheck">
 
         <RadioButton
@@ -69,15 +78,13 @@
 
     <Switch
         android:id="@+id/round_up_switch"
-        android:layout_width="351dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="32dp"
+        android:layout_width="231dp"
+        android:layout_height="48dp"
         android:checked="true"
         android:minHeight="48dp"
         android:text="@string/round_up_tip"
         android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/calculate_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tip_options"
@@ -85,27 +92,63 @@
 
     <Button
         android:id="@+id/calculate_button"
-        android:layout_width="379dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_width="337dp"
+        android:layout_height="48dp"
         android:text="@string/calculate"
+        app:layout_constraintBottom_toTopOf="@+id/tip_result"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/round_up_switch"
+        app:layout_constraintTop_toBottomOf="@+id/tip_options"
         tools:ignore="VisualLintButtonSize" />
 
     <TextView
         android:id="@+id/tip_result"
         android:layout_width="287dp"
         android:layout_height="55dp"
-        android:layout_marginBottom="10dp"
         android:textAlignment="viewStart"
         android:textSize="20sp"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/calculate_button"
-        app:layout_constraintVertical_bias="0.088"
+        app:layout_constraintTop_toBottomOf="@+id/tip_options"
+        app:layout_constraintVertical_bias="0.702"
         tools:text="Tip Amount: $10" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/service_question"
+        app:layout_constraintEnd_toStartOf="@+id/cost_of_service"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.601"
+        app:srcCompat="@drawable/baseline_monetization_on_24"
+        android:importantForAccessibility="no" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/tip_options"
+        app:layout_constraintEnd_toStartOf="@+id/service_question"
+        app:layout_constraintHorizontal_bias="0.259"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.445"
+        app:srcCompat="@drawable/baseline_room_service_24"
+        android:importantForAccessibility="no" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="43dp"
+        android:layout_height="42dp"
+        app:layout_constraintBottom_toBottomOf="@+id/round_up_switch"
+        app:layout_constraintEnd_toStartOf="@+id/round_up_switch"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tip_options"
+        app:srcCompat="@drawable/baseline_cached_black_20"
+        android:importantForAccessibility="no" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
